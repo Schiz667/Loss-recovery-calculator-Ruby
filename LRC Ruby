@@ -1,4 +1,4 @@
-# Loss recovery calculator v2.2.7 by Schiz in the shell
+# Loss recovery calculator v2.3.9 by Schiz in the shell
 def lcr()
   print   "\e[31mВведите размер депозита :\e[0m "
   money = gets.to_f
@@ -15,13 +15,13 @@ def lcr()
   print "\e[36mВведите убыток в % >0 100< :\e[0m"
   loss = gets.to_f
   while TRUE 
-     if loss >= 100 or loss <= 0
+     if loss >= 100 || loss <= 0
       print "\e[36mВведите убыток в % >0 100< :\e[0m"
       loss = gets.to_f
-     else 
+     else
       puts "\e[35m \nLRC report:\n \e[0m "
-    end
     break
+  end
   end
   place = 1
   rest = money - (money * loss / 100).round(2)
@@ -34,7 +34,7 @@ def lcr()
   moneyWtCP = (money + profWLCP).round(2)
   rLPFWLSS = ((profWLSP / rest) * 100 + restPc).round(2)
   soul = ['Профит фактор =' + "\e[32m #{pF} \e[0m ", 'Прибыль без учёта убытка составила бы' + "\e[32m #{profWLSP} \e[0m " + 'денег' + ' через' + "\e[32m #{xm}\e[0m " + 'месяцев без реинвестирования' + ' и ' + "\e[32m #{profWLCP} \e[0m " + 'денег ' + '(' + 'депозит =' + "\e[32m #{moneyWtCP}\e[0m" + ')' + ' через' + "\e[32m #{cmpndPrc}\e[0m " + 'месяцев с реинвестированием.', 'Реальные проценты чтобы достигнуть депозита с доходностью без убытка для депозита с убытком =' +  "\e[31m #{rLPFWLSS}\e[0m " + "\e[31m% \e[0m "]
-  if loss > 0 or loss < 100
+  if loss > 0 || loss < 100
       print ('-' * 10 +  "\n\n(1) " + 'Чтобы восстановить убыток вам нужно + ' + "\e[31m #{restPc}\e[0m " + "\e[31m% \e[0m" + '(от остатка' + "\e[31m #{rest}\e[0m " + "денег)\n\n")
     end
   if prof > 0
